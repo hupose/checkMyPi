@@ -15,7 +15,7 @@ class checkBili {
         $tasks = simplexml_load_file(ROOTPATH . 'conf/items.xml');
         $arr_tasks = (array)$tasks;//simplexmlobj转array，为了得到整个数组大小。不转换的话用foreach(simplexmlobj)会无限循环
         for($num = 0;$num < count($arr_tasks['item']);$num++){
-            $url = "http://www.bilibili.tv/search?orderby=pubdate&keyword=" . urlencode($tasks->item[$num]->key);
+            $url = "http://bilibili.kankanews.com/search?orderby=pubdate&keyword=" . urlencode($tasks->item[$num]->key);
             $gzhtml = curlTools::simpleCurl($url);
             $html = gzdecode($gzhtml);//curl过来是gzip过的，需要解压，否则是乱码的
             $html = str_get_html($html);
