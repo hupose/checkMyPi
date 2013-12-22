@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <mailType>SMTP</mailType>
+    <Host>smtp.163.com</Host>
+    <SMTPAuth>true</SMTPAuth>
+    <Username></Username>
+    <Password></Password>
+    <SMTPSecure>tls</SMTPSecure>
+    <From></From>
+    <FromName>Remind Mail</FromName>
+    <To></To>
+    <isHTML>true</isHTML>
+</config>
+
