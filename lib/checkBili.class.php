@@ -3,14 +3,20 @@
 require_once(ROOTPATH . 'lib/curlTools.class.php');
 require_once(ROOTPATH . 'lib/simple_html_dom.php');
 require_once(ROOTPATH . 'PHPMailer/PHPMailerAutoload.php');
+require_once(ROOTPATH . 'log4php/Logger.php');
+
+Logger::configure(ROOTPATH.'log4php/config.xml');
 
 
 class checkBili {
 
     public $shengrou = '%e7%94%9f%e8%82%89';
+    private $_log;
 
 
     public function checkNew(){
+        $this->_log = Logger::getLogger('checkMyPi');
+        $this->_log->info("开始检查bilibili");
         $updateTime = array();
         $tasks = simplexml_load_file(ROOTPATH . 'conf/items.xml');
         $arr_tasks = (array)$tasks;//simplexmlobj转array，为了得到整个数组大小。不转换的话用foreach(simplexmlobj)会无限循环
@@ -44,6 +50,7 @@ class checkBili {
                 $content = urlencode($content);
                 if(strpos($content,$this->shengrou) === false && strtotime(trim($arr_time[$i])) > strtotime($tasks->item[$num]->lastUpdateTime)){
                     $this->sendMail($tasks->item[$num]->key . "更新啦");
+                    $this->_log->info("bilibili更新啦");
                     $tasks->item[$num]->lastUpdateTime = trim($arr_time[$i]);
                     break;
                 }
@@ -51,6 +58,7 @@ class checkBili {
         }
         curlTools::curlClose();
         $tasks->saveXML(ROOTPATH . 'conf/items.xml');
+        $this->_log->info("检查bilibili完毕");
     }
 
     public function sendMail($content){
