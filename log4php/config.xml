@@ -3,7 +3,7 @@
         <layout class="LoggerLayoutPattern">
             <param name="conversionPattern" value="%date{Y-m-d H:i:s} [%level] %message%newline" />
         </layout>
-        <param name="file" value="/home/pi/codes/checkMyPi/alltask.log" />
+        <param name="file" value="checkMyPi/alltask.log" />
     </appender>
     <root>
         <level value="DEBUG" />
