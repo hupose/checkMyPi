@@ -1,6 +1,6 @@
 <?php
-
-require_once("conf/config.php");
+define('ROOTPATH',dirname(__FILE__));
+require_once(ROOTPATH . "conf/config.php");
 require_once(ROOTPATH . "lib/curlTools.class.php");
 require_once(ROOTPATH . "lib/checkBili.class.php");
 require_once(ROOTPATH . 'log4php/Logger.php');
