@@ -1,6 +1,7 @@
 <?php
 define('ROOTPATH',dirname(__FILE__));
-require_once(ROOTPATH . "/conf/config.php");
+date_default_timezone_set("Asia/Shanghai");
+
 require_once(ROOTPATH . "/lib/curlTools.class.php");
 require_once(ROOTPATH . "/lib/checkBili.class.php");
 require_once(ROOTPATH . '/log4php/Logger.php');
