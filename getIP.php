@@ -1,6 +1,5 @@
 <?php
 define('FILEPATH',dirname(__FILE__));
-
 require_once(FILEPATH . "/conf/config.php");
 require_once(ROOTPATH . "/lib/curlTools.class.php");
 require_once(ROOTPATH . "/lib/checkBili.class.php");
