@@ -1,10 +1,10 @@
 <?php
 
 require_once("conf/config.php");
-require_once("lib/curlTools.class.php");
-require_once("lib/checkBili.class.php");
-require_once('log4php/Logger.php');
-Logger::configure('log4php/config.xml');
+require_once(ROOTPATH . "lib/curlTools.class.php");
+require_once(ROOTPATH . "lib/checkBili.class.php");
+require_once(ROOTPATH . 'log4php/Logger.php');
+Logger::configure(ROOTPATH . 'log4php/config.xml');
 $log = Logger::getLogger('checkMyPi');
 $log->info("开始检查本机IP");
 $ipXml = simplexml_load_file(ROOTPATH . 'conf/ip.xml');
