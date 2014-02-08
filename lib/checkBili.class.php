@@ -79,6 +79,7 @@ class checkBili {
         if($isSMTP == "SMTP"){
             $mail->isSMTP();
         }
+        $mail->CharSet = 'utf-8';
         $mail->Host = $host;
         $mail->SMTPAuth = $SMTPAuth;
         $mail->Username = $Username;
@@ -93,8 +94,7 @@ class checkBili {
         $mail->isHTML($isHTML);
 
         $mail->Subject = $content;
-        $mail->Body    = '<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head><body><p>'
-            . $content . '</p></body></html>';
+        $mail->Body    = $content;
 
         if(!$mail->send()) {
             echo 'Message could not be sent.';
