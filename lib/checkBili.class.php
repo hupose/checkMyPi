@@ -93,7 +93,8 @@ class checkBili {
         $mail->isHTML($isHTML);
 
         $mail->Subject = $content;
-        $mail->Body    = $content;
+        $mail->Body    = '<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head><body><p>'
+            . $content . '</p></body></html>';
 
         if(!$mail->send()) {
             echo 'Message could not be sent.';
